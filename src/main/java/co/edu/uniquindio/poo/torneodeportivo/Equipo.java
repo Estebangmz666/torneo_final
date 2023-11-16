@@ -58,3 +58,17 @@ public record Equipo(String nombre,Persona representante,Collection<Jugador> jug
         return nombre;
     }
 }
+
+public Optional<Enfrentamientos> buscarEnfrentamientosPorEquipo(Equipo equipo){
+    List<Enfrentamientos> enfrentamientosEquipo = new Arraylist<>();
+    for (Enfrentamiento enfrentamiento : enfrentamientos){
+        if (enfrentamiento.involucraEquipo(nombreEquipo)){
+            enfrentamientosEquipo.add(enfrentamiento.toString());
+        }
+    }
+
+
+
+public boolean involucraEquipo(String nombreEquipo) {
+        return equipoLocal.equals(nombreEquipo) || equipoVisitante.equals(nombreEquipo);
+    }
